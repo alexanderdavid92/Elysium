@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elysium.Data
+namespace Elysium.Manager.Dto
 {
-    public class Class1
+    public class EmployeeHistoryDto
     {
     }
 }
