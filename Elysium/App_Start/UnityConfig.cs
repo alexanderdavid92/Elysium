@@ -1,8 +1,9 @@
 using Elysium.Manager.Interfaces;
 using Elysium.Manager.Members;
 using System;
-
 using Unity;
+using Unity.AspNet.Mvc;
+using Unity.Lifetime;
 
 namespace Elysium
 {
@@ -16,7 +17,7 @@ namespace Elysium
           new Lazy<IUnityContainer>(() =>
           {
               var container = new UnityContainer();
-              RegisterTypes(container);
+              RegisterTypes(container, t=> new PerRequestLifetimeManager());
               return container;
           });
 
@@ -36,11 +37,13 @@ namespace Elysium
         /// allows resolving a concrete type even if it was not previously
         /// registered.
         /// </remarks>
-        public static void RegisterTypes(IUnityContainer container)
+        public static void RegisterTypes(IUnityContainer container, Func<Type, LifetimeManager> defaultLifetime)
         {
             container.RegisterType<IEmployeeManager, EmployeeManager>();
             container.RegisterType<IEmployeeSettingsManager, EmployeeSettingsManager>();
             container.RegisterType<IEmployeeHistoryManager, EmployeeHistoryManager>();
+
+            Elysium.Manager.UnityConfig.RegisterTypes(container, defaultLifetime);
         }
     }
 }
