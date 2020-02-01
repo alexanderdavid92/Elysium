@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Elysium.Manager.Dto
+﻿namespace Elysium.Manager.Dto
 {
+    using System;
+
     public class EmployeeSettingsDto
     {
+        public Guid Id { get; set; }
+
+        public bool ReceiveNotifications { get; set; }
+
+        public virtual EmployeeDto Employee { get; set; }
     }
 }

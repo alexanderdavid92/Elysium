@@ -53,9 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\DepartmentDto.cs" />
     <Compile Include="Dto\EmployeeDto.cs" />
     <Compile Include="Dto\EmployeeHistoryDto.cs" />
     <Compile Include="Dto\EmployeeSettingsDto.cs" />
+    <Compile Include="Dto\EventTypeDto.cs" />
     <Compile Include="Interfaces\IEmployeeHistoryManager.cs" />
     <Compile Include="Interfaces\IEmployeeManager.cs" />
     <Compile Include="Interfaces\IEmployeeSettingsManager.cs" />

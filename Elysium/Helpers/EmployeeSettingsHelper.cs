@@ -8,6 +8,16 @@
     {
         private static readonly IMapper ToViewModelMapper = CreateToViewModelMapper();
         private static readonly IMapper ToDtoMapper = CreateToDtoMapper();
+
+        public EmployeeSettingsDto ConvertToDto(EmployeeSettingsViewModel employeeSettingsViewModel)
+        {
+            return ToDtoMapper.Map<EmployeeSettingsDto>(employeeSettingsViewModel);
+        }
+
+        public EmployeeSettingsViewModel ConvertToViewModel(EmployeeSettingsDto employeeSettingsDto)
+        {
+            return ToViewModelMapper.Map<EmployeeSettingsViewModel>(employeeSettingsDto);
+        }
         private static IMapper CreateToViewModelMapper()
         {
             var configuration = new MapperConfiguration(cfg => {
