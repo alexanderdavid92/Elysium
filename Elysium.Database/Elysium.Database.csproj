@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202002011704465_InitialSetup.designer.cs">
       <DependentUpon>202002011704465_InitialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002011733370_AddPropertyToEmployee.cs" />
+    <Compile Include="Migrations\202002011733370_AddPropertyToEmployee.designer.cs">
+      <DependentUpon>202002011733370_AddPropertyToEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002011704465_InitialSetup.resx">
       <DependentUpon>202002011704465_InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002011733370_AddPropertyToEmployee.resx">
+      <DependentUpon>202002011733370_AddPropertyToEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
