@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>3c0151ee-ba08-4d8b-9de4-d25835c0ca22</ProjectGuid>
+    <ProjectGuid>c3202175-cd1d-4911-af75-f0fd5dc25c41</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Elysium.Manager</RootNamespace>
-    <AssemblyName>Elysium.Manager</AssemblyName>
+    <RootNamespace>Elysium.Data</RootNamespace>
+    <AssemblyName>Elysium.Data</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

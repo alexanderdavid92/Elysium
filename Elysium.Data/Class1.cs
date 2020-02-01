@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elysium.Manager
+namespace Elysium.Data
 {
     public class Class1
     {
