@@ -1,12 +1,9 @@
-﻿using Elysium.Manager.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Elysium.Controllers
+﻿namespace Elysium.Controllers
 {
+    using Elysium.Manager.Interfaces;
+    using Elysium.Models;
+    using System.Web.Mvc;
+
     [Authorize]
     public class EmployeeController : Controller
     {
@@ -16,12 +13,20 @@ namespace Elysium.Controllers
         {
             this.employeeManager = employeeManager;
         }
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateEmployee (EmployeeViewModel model)
         {
             return View();
         }
