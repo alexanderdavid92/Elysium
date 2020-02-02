@@ -11,14 +11,18 @@
     $(function () {
         $('.datetimepicker').datepicker();
     });
-} );
 </script>
 
-@using (Html.BeginForm("CreateEmployee", "Employee", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm(ViewData["EmployeeAction"].ToString() == "Create" ? "CreateEmployee" : "EditEmployee", "Employee", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.HiddenFor(m => m.Id)
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -34,7 +38,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control",  @required = "required" } })
+            @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
         </div>
     </div>
     <div class="form-group">
@@ -46,13 +50,37 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control",  @required = "required" } })
+            @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.SSN, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.EditorFor(m => m.SSN, new { htmlAttributes = new { @class = "form-control",  @required = "required" } })
+            @Html.EditorFor(m => m.SSN, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Position, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Position, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Office, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Office, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Salary, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Currency, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Currency, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
         </div>
     </div>
     <div class="form-group">
@@ -75,7 +103,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Create" />
+            <input type="submit" class="btn btn-success btn-lg" value="Save" />
         </div>
     </div>
 }

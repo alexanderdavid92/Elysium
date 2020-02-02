@@ -61,6 +61,7 @@
         {
             using (var context = new ElysiumContext())
             {
+                context.Configuration.LazyLoadingEnabled = false;
                 return context.Employee.First(x => x.Id == Id);
             }            
         }

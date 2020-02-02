@@ -8,8 +8,8 @@
 @Html.ActionLink("Create", "Create", "Employee", null, new { @class = "btn btn-info" })
 
 <script type="text/javascript">
-     $(document).ready(function () {
-         var table =$('#employeeTable').DataTable({
+    $(document).ready(function () {
+        var table = $('#employeeTable').DataTable({
             "paging": true
         })
 
@@ -30,6 +30,23 @@
         });
     });
 
+    $(function () {
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            autoOpen : false,
+            modal: true,
+            buttons: {
+                "Delete all items": function () {
+                    $(this).dialog("close");
+                },
+                Cancel: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    });
     function format(d) {
 
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
@@ -47,8 +64,8 @@
             '</tr>' +
             '<tr>' +
             '<td>Salary:</td>' +
-            '<td>' + d[12] + '</td>' +
-            '</tr>' +    
+            '<td>' + d[12] + ' ' + d[13] + '</td>' +
+            '</tr>' +
             '</table>';
     }
 
@@ -97,49 +114,65 @@
             <th style="display:none">
                 Currency
             </th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td class="details-control"></td>
-                <td align="center">@item.FirstName</td>
+        <tr>
+            <td class="details-control"></td>
+            <td align="center">@item.FirstName</td>
 
-                <td align="center">@item.MiddleName</td>
+            <td align="center">@item.MiddleName</td>
 
-                <td align="center">@item.LastName</td>
+            <td align="center">@item.LastName</td>
 
-                <td align="center">@item.PhoneNumber</td>
+            <td align="center">@item.PhoneNumber</td>
 
-                <td style="display:none">@item.SSN</td>
+            <td style="display:none">@item.SSN</td>
 
-                <td style="display:none">@item.BirthDate.ToShortDateString()</td>
+            <td style="display:none">@item.BirthDate.ToShortDateString()</td>
 
-                <td style="display:none">@item.EmploymentDate.ToShortDateString()</td>
+            <td style="display:none">@item.EmploymentDate.ToShortDateString()</td>
 
-                <td align="center">@item.EmailAddress</td>
+            <td align="center">@item.EmailAddress</td>
 
-                <td align="center">@item.Department</td>
+            <td align="center">@item.Department</td>
 
-                <td align="center">@item.Position</td>
+            <td align="center">@item.Position</td>
 
-                <td align="center">@item.Office</td>
+            <td align="center">@item.Office</td>
 
-                <td style="display:none">@item.Salary</td>
+            <td style="display:none">@item.Salary</td>
 
-                <td style="display:none">@item.Currency</td>
-            </tr>
+            <td style="display:none">@item.Currency</td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Employee", new {id = item.Id}, new { @class = "btn btn-warning" })
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Employee", null, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
         }
     </tbody>
 </table>
 
+<div id="dialog-confirm" title="Empty the recycle bin?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
+
+<p></p>
 <style>
     td.details-control {
-    background: url('../../Content/Images/details_open.png') no-repeat center center;
-    cursor: pointer;
-}
-tr.shown td.details-control {
-    background: url('../../Content/Images/details_close.png') no-repeat center center;
-}
+        background: url('../../Content/Images/details_open.png') no-repeat center center;
+        cursor: pointer;
+    }
+
+    tr.shown td.details-control {
+        background: url('../../Content/Images/details_close.png') no-repeat center center;
+    }
 </style>

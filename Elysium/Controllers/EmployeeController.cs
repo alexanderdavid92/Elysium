@@ -33,6 +33,7 @@
                 BirthDate = DateTime.UtcNow.AddYears(-20),
                 EmploymentDate = DateTime.UtcNow
             };
+            ViewData["EmployeeAction"] = "Create";
             return View(model);
         }
 
@@ -41,6 +42,27 @@
         {
             var employeeDto = this.employeeHelper.ConvertToDto(model);
             this.employeeManager.Add(employeeDto);
+
+            var employeesDto = this.employeeManager.GetAll();
+            var emplyeesViewModel = employeesDto.Select(x => this.employeeHelper.ConvertToViewModel(x)).ToList();
+            return View("Index", emplyeesViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(Guid id)
+        {
+            var employee = this.employeeManager.GetById(id);
+            var employeeViewModel = this.employeeHelper.ConvertToViewModel(employee);
+
+            ViewData["EmployeeAction"] = "Edit";
+            return View("Create", employeeViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditEmployee(EmployeeViewModel model)
+        {
+            var employeeDto = this.employeeHelper.ConvertToDto(model);
+            this.employeeManager.Edit(employeeDto);
 
             var employeesDto = this.employeeManager.GetAll();
             var emplyeesViewModel = employeesDto.Select(x => this.employeeHelper.ConvertToViewModel(x)).ToList();
