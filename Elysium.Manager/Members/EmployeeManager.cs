@@ -21,6 +21,9 @@
         public void Add(EmployeeDto employeeDto)
         {
             var dbEntity = this.MapToEntityMapper(employeeDto);
+            dbEntity.Id = Guid.NewGuid();
+            dbEntity.History = new List<EmployeeHistory>();
+            dbEntity.Settings = new EmployeeSettings();
             this.employeeData.Add(dbEntity);
         }
 
