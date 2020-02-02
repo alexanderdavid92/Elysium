@@ -10,12 +10,12 @@ namespace Elysium.Controllers
     [Authorize]
     public class EmployeeController : Controller
     {
-        //private IEmployeeManager employeeManager;
+        private IEmployeeManager employeeManager;
 
-        //public EmployeeController(IEmployeeManager employeeManager)
-        //{
-        //    this.employeeManager = employeeManager;
-        //}
+        public EmployeeController(IEmployeeManager employeeManager)
+        {
+            this.employeeManager = employeeManager;
+        }
         public ActionResult Index()
         {
             return View();
