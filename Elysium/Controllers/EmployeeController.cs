@@ -42,10 +42,8 @@
         {
             var employeeDto = this.employeeHelper.ConvertToDto(model);
             this.employeeManager.Add(employeeDto);
-
-            var employeesDto = this.employeeManager.GetAll();
-            var emplyeesViewModel = employeesDto.Select(x => this.employeeHelper.ConvertToViewModel(x)).ToList();
-            return View("Index", emplyeesViewModel);
+         
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -63,6 +61,14 @@
         {
             var employeeDto = this.employeeHelper.ConvertToDto(model);
             this.employeeManager.Edit(employeeDto);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteEmployee(string id)
+        {
+            this.employeeManager.Delete(Guid.Parse(id));
 
             var employeesDto = this.employeeManager.GetAll();
             var emplyeesViewModel = employeesDto.Select(x => this.employeeHelper.ConvertToViewModel(x)).ToList();

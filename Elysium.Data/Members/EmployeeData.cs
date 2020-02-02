@@ -5,6 +5,7 @@
     using Elysium.Entities;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
 
     public class EmployeeData : IEmployeeData
@@ -24,16 +25,21 @@
             }
         }
 
-        public void Delete(Guid Id)
+        public void Delete(Guid id)
         {
             using (var context = new ElysiumContext())
             {
                 var employee = new Employee()
                 {
-                    Id = Id
+                    Id = id
                 };
-                context.Employee.Remove(employee);
 
+                var settings = new EmployeeSettings { Id = id };
+                context.Entry(settings).State = EntityState.Deleted;
+                context.SaveChanges();
+
+                context.Employee.Attach(employee);
+                context.Entry(employee).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
