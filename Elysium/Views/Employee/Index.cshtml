@@ -63,6 +63,10 @@
             '<td>' + d[5] + '</td>' +
             '</tr>' +
             '<tr>' +
+            '<td>Address:</td>' +
+            '<td>' + d[14] + '</td>' +
+            '</tr>' +
+            '<tr>' +
             '<td>Birth Date:</td>' +
             '<td>' + d[6] + '</td>' +
             '</tr>' +
@@ -101,6 +105,9 @@
             </th>
             <th style="display:none">
                 SSN
+            </th>
+            <th style="display:none">
+                Address
             </th>
             <th style="display:none">
                 Birth Date
@@ -161,12 +168,14 @@
 
             <td style="display:none">@item.Currency</td>
 
+            <td style="display:none">@item.Address</td>
+
             <td>
-                @Html.ActionLink("Edit", "Edit", "Employee", new {id = item.Id}, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Edit", "Edit", "Employee", new { id = item.Id }, new { @class = "btn btn-warning" })
             </td>
 
             <td>
-                <input type="button" name="deleteButton" class="btn btn-danger" value="Delete" onclick="deleteConfirm('@item.Id')"/>    @*@Html.ActionLink("Delete", "#", "", null, new { @class = "btn btn-danger", onclick = "deleteConfirm(" +item.Id+ ");" })*@
+                <input type="button" name="deleteButton" class="btn btn-danger" value="Delete" onclick="deleteConfirm('@item.Id')" />    @*@Html.ActionLink("Delete", "#", "", null, new { @class = "btn btn-danger", onclick = "deleteConfirm(" +item.Id+ ");" })*@
             </td>
         </tr>
         }

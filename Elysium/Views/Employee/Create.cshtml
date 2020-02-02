@@ -42,6 +42,12 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.EmailAddress, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.EmailAddress, new { htmlAttributes = new { @class = "form-control", @type = "email", @required = "required" } })
@@ -74,7 +80,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Salary, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", @required = "required", min = 0 } })
         </div>
     </div>
     <div class="form-group">
@@ -106,4 +112,6 @@
             <input type="submit" class="btn btn-success btn-lg" value="Save" />
         </div>
     </div>
+
+    @Html.ActionLink("Back", "Index", "Employee", null, new { @class = "btn btn-info  btn-lg " })
 }
