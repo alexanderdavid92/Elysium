@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202002011733370_AddPropertyToEmployee.designer.cs">
       <DependentUpon>202002011733370_AddPropertyToEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002021501485_RelationUpdates.cs" />
+    <Compile Include="Migrations\202002021501485_RelationUpdates.designer.cs">
+      <DependentUpon>202002021501485_RelationUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002011733370_AddPropertyToEmployee.resx">
       <DependentUpon>202002011733370_AddPropertyToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002021501485_RelationUpdates.resx">
+      <DependentUpon>202002021501485_RelationUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

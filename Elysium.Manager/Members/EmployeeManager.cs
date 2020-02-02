@@ -64,6 +64,8 @@
         {
             var configuration = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Employee, EmployeeDto>();
+                cfg.CreateMap<EmployeeHistory, EmployeeHistoryDto>();
+                cfg.CreateMap<EmployeeSettings, EmployeeSettingsDto>();
             });
 
             return configuration.CreateMapper();

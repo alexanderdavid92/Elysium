@@ -52,6 +52,7 @@
         {
             using (var context = new ElysiumContext())
             {
+                context.Configuration.LazyLoadingEnabled = false;
                 return context.Employee.ToList();
             }
         }
