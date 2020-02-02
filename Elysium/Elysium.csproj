@@ -197,6 +197,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HelperInterfaces\IEmployeeHelper.cs" />
+    <Compile Include="HelperInterfaces\IEmployeeHistoryHelper.cs" />
+    <Compile Include="HelperInterfaces\IEmployeeSettingsHelper.cs" />
+    <Compile Include="HelperInterfaces\IHelper.cs" />
     <Compile Include="Helpers\EmployeeHelper.cs" />
     <Compile Include="Helpers\EmployeeHistoryHelper.cs" />
     <Compile Include="Helpers\EmployeeSettingsHelper.cs" />

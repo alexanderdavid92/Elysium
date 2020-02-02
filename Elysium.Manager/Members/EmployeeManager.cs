@@ -37,7 +37,7 @@
 
         public IList<EmployeeDto> GetAll()
         {
-            var employeeDto = this.employeeData.GetAll().ToList();
+            var employeeDto = this.employeeData.GetAll();
 
             return employeeDto.Select(x => MapToDtoMapper(x)).ToList();
         }

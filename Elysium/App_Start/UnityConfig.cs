@@ -1,22 +1,19 @@
-using Elysium.Controllers;
-using Elysium.Manager.Interfaces;
-using Elysium.Manager.Members;
-using Elysium.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
-using System;
-using System.Data.Entity;
-using System.Web;
-using Unity;
-using Unity.Injection;
-using Unity.Lifetime;
-
 namespace Elysium
 {
-    /// <summary>
-    /// Specifies the Unity configuration for the main container.
-    /// </summary>
+    using Elysium.HelperInterfaces;
+    using Elysium.Helpers;
+    using Elysium.Manager.Interfaces;
+    using Elysium.Manager.Members;
+    using Elysium.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.Owin.Security;
+    using System;
+    using System.Data.Entity;
+    using System.Web;
+    using Unity;
+    using Unity.Injection;
+
     public static class UnityConfig
     {
         #region Unity Container
@@ -55,9 +52,16 @@ namespace Elysium
             container.RegisterType<DbContext, ApplicationDbContext>();
             container.RegisterType<UserManager<ApplicationUser>>();
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => System.Web.HttpContext.Current.GetOwinContext().Authentication));
+
             container.RegisterType<IEmployeeManager, EmployeeManager>();
             container.RegisterType<IEmployeeSettingsManager, EmployeeSettingsManager>();
             container.RegisterType<IEmployeeHistoryManager, EmployeeHistoryManager>();
+
+            container.RegisterType<IEmployeeHelper, EmployeeHelper>();
+            container.RegisterType<IEmployeeSettingsHelper, EmployeeSettingsHelper>();
+            container.RegisterType<IEmployeeHistoryHelper, EmployeeHistoryHelper>();
+
+            Elysium.Manager.UnityConfig.RegisterTypes(container);
         }
     }
 }

@@ -1,10 +1,72 @@
-﻿@{
+﻿@using Elysium.Models
+@model  List<EmployeeViewModel>
+@{
     ViewBag.Title = "Home Page";
 }
-
-
 
 <div class="row">
     @Html.ActionLink("Create", "Create", "Employee")
 
 </div>
+
+<table>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Middle Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th>
+            SSN
+        </th>
+        <th>
+            Birth Date
+        </th>
+        <th>
+            Employment Date
+        </th>
+        <th>
+            Email Address
+        </th>
+        <th>
+            Department
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+        </tr>
+        <tr>
+            <td>@item.MiddleName</td>
+        </tr>
+        <tr>
+            <td>@item.LastName</td>
+        </tr>
+        <tr>
+            <td>@item.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td>@item.SSN</td>
+        </tr>
+        <tr>
+            <td>@item.BirthDate</td>
+        </tr>
+        <tr>
+            <td>@item.EmploymentDate</td>
+        </tr>
+        <tr>
+            <td>@item.EmailAddress</td>
+        </tr>
+        <tr>
+            <td>@item.Department</td>
+        </tr>
+    }
+</table>

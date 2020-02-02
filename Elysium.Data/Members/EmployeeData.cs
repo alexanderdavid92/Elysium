@@ -4,8 +4,8 @@
     using Elysium.Database;
     using Elysium.Entities;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
-    using System.Linq.Expressions;
 
     public class EmployeeData : IEmployeeData
     {
@@ -48,11 +48,11 @@
             }
         }
 
-        public IQueryable<Employee> GetAll()
+        public List<Employee> GetAll()
         {
             using (var context = new ElysiumContext())
             {
-                return context.Employee.AsQueryable();
+                return context.Employee.ToList();
             }
         }
 

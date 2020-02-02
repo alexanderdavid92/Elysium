@@ -1,10 +1,11 @@
 ﻿namespace Elysium.Helpers
 {
     using AutoMapper;
+    using Elysium.HelperInterfaces;
     using Elysium.Manager.Dto;
     using Elysium.Models;
 
-    public class EmployeeSettingsHelper
+    public class EmployeeSettingsHelper : IEmployeeSettingsHelper
     {
         private static readonly IMapper ToViewModelMapper = CreateToViewModelMapper();
         private static readonly IMapper ToDtoMapper = CreateToDtoMapper();

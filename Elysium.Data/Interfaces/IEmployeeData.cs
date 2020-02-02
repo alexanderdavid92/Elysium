@@ -2,6 +2,7 @@
 {
     using Elysium.Entities;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
 
@@ -11,6 +12,6 @@
         void Edit(Employee employee);
         void Delete(Guid Id);
         Employee GetById(Guid Id);
-        IQueryable<Employee> GetAll();
+        List<Employee> GetAll();
     }
 }

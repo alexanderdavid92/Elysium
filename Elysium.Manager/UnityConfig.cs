@@ -1,15 +1,11 @@
-﻿using Elysium.Data.Interfaces;
-using Elysium.Data.Members;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity;
-using Unity.Lifetime;
-
-namespace Elysium.Manager
+﻿namespace Elysium.Manager
 {
+    using Elysium.Data.Interfaces;
+    using Elysium.Data.Members;
+    using System;
+    using Unity;
+    using Unity.Lifetime;
+
     public class UnityConfig
     {
         private static Lazy<IUnityContainer> container =
